@@ -1,10 +1,10 @@
 {
   "name": "wealth-deno-example",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf ./dist && tsc && cp ./src/wealth/wealth-node.darwin-arm64.node ./dist/wealth && node ./dist/main.js"
+    "test": "npm run build && node dist/main.js",
+    "build": "rm -rf ./dist && tsc && cp ./src/wealth/wealth-node.darwin-arm64.node ./dist/wealth"
   },
   "keywords": [],
   "author": "",

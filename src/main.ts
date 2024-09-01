@@ -1,4 +1,4 @@
-import { RunMode, BacktestConfig, Decimal, runBacktest, Context } from "./wealth";
+import { BacktestConfig, Decimal, runBacktest, Context } from "./wealth";
 
 function onSetup(ctx: Context) {
   ctx.setBenchmark("BTCUSDT");
