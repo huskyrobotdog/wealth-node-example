@@ -20,14 +20,14 @@ function onMinuteEnd(ctx: Context) {}
 function onHourEnd(ctx: Context) {}
 /** 每日结束 */
 function onDayEnd(ctx: Context) {
-  ctx.debug("每日结束");
+  // ctx.debug("每日结束");
 }
 /** 策略停止 */
 function onStop(ctx: Context) {
-  ctx.debug("策略停止");
+  // ctx.debug("策略停止");
 }
 
-const config = new BacktestConfig().begin("2021-01-01").end("2021-01-05").balance(Decimal.fromString("1000"));
+const config = new BacktestConfig().begin("2021-01-01").end("2021-02-01").balance(Decimal.fromString("1000"));
 runBacktest(config, {
   onSetup,
   onInit,
