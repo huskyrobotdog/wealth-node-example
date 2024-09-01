@@ -68,6 +68,109 @@ export declare class Decimal {
   /** 转为number */
   toNumber(): number
 }
+/** K线 */
+export declare class Candle {
+  constructor()
+  /** 标的 */
+  get symbol(): string
+  /** 开盘时间 */
+  get time(): Date
+  /** 开盘价 */
+  get open(): Decimal
+  /** 最高价 */
+  get high(): Decimal
+  /** 最低价 */
+  get low(): Decimal
+  /** 收盘价 */
+  get close(): Decimal
+  /** 成交量 */
+  get volume(): Decimal
+  /** 报价币成交量 */
+  get quoteVolume(): Decimal
+  /** 交易笔数 */
+  get trades(): number
+  /** 吃单方买入的基础币数量 */
+  get takerBuyVolume(): Decimal
+  /** 吃单方买入的报价币数量 */
+  get takerBuyQuoteVolume(): Decimal
+}
+/** 账户 */
+export declare class Account {
+  constructor()
+  /** 余额 */
+  get balance(): Decimal
+  /** 可用余额 */
+  get available(): Decimal
+  /** 未实现盈亏 */
+  get upl(): Decimal
+}
+/** 仓位 */
+export declare class Position {
+  constructor()
+  /** 持仓均价 */
+  get price(): Decimal
+  /** 持仓数量 */
+  get volume(): Decimal
+  /** 保证金 */
+  get margin(): Decimal
+  /** 未实现盈亏 */
+  get upl(): Decimal
+}
+/** 持仓 */
+export declare class Positions {
+  constructor()
+  /** 标的 */
+  get symbol(): string
+  /** 杠杆倍数 */
+  get leverage(): number
+  /** 吃单费率 */
+  get takerRate(): Decimal
+  /** 挂单费率 */
+  get makerRate(): Decimal
+  /** 做多仓位 */
+  get long(): Position
+  /** 做空仓位 */
+  get short(): Position
+}
+/** 订单 */
+export declare class Order {
+  constructor()
+  /** 订单号 */
+  get id(): string
+  /** 标的 */
+  get symbol(): string
+  /** 交易类型 */
+  get type(): TradeType
+  /** 交易方向 */
+  get side(): TradeSide
+  /** 交易动作 */
+  get action(): TradeAction
+  /**
+   * 数量
+   * ---
+   * 市价交易买入 : 为金额
+   * 市价交易卖出 : 为数量
+   * 限价交易 : 为数量
+   */
+  get volume(): Decimal
+  /**
+   * 价格
+   * ---
+   * 市价交易 : 为0
+   * 限价交易 : 为价格
+   */
+  get price(): Decimal
+  /** 占用保证金 */
+  get margin(): Decimal
+  /** 下单时间 */
+  get time(): Date
+  /** 成交均价 */
+  get dealPrice(): Decimal
+  /** 成交数量 */
+  get dealVolume(): Decimal
+  /** 成交手续费 */
+  get dealFee(): Decimal
+}
 /** 回测配置 */
 export declare class BacktestConfig {
   constructor()
@@ -97,6 +200,22 @@ export declare class Context {
   cancelOrder(symbol: string, id: string): void
   /** 交易时间 */
   tradeTime(): Date
+  /** 指数价 */
+  indexPrice(symbol: string): Decimal | null
+  /** 标记价 */
+  markPrice(symbol: string): Decimal | null
+  /** 资金费率 */
+  fundingRate(symbol: string): Decimal | null
+  /** 最新K线 */
+  lastCandle(symbol: string): Candle | null
+  /** 账户 */
+  account(): Account
+  /** 持仓 */
+  position(symbol: string): Positions | null
+  /** 基准 */
+  benchmark(): string
+  /** 订单 */
+  order(symbol: string, id: string): Order | null
   /** 日志 调试 */
   debug(msg: string): void
   /** 日志 信息 */

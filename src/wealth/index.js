@@ -310,9 +310,14 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { Decimal, RunMode, TradeType, TradeSide, TradeAction, BacktestConfig, Context, runBacktest } = nativeBinding
+const { Decimal, Candle, Account, Position, Positions, Order, RunMode, TradeType, TradeSide, TradeAction, BacktestConfig, Context, runBacktest } = nativeBinding
 
 module.exports.Decimal = Decimal
+module.exports.Candle = Candle
+module.exports.Account = Account
+module.exports.Position = Position
+module.exports.Positions = Positions
+module.exports.Order = Order
 module.exports.RunMode = RunMode
 module.exports.TradeType = TradeType
 module.exports.TradeSide = TradeSide
