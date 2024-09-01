@@ -10,7 +10,11 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/main.ts",
       "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "preLaunchTask": "build",
+      "env": {
+        "LOGO_SHOW": "false"
+      }
     }
   ]
 }
