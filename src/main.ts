@@ -15,7 +15,12 @@ function onMinuteBegin(ctx: Context) {}
 /** Tick */
 function onTick(ctx: Context) {}
 /** 每分钟结束 */
-function onMinuteEnd(ctx: Context) {}
+function onMinuteEnd(ctx: Context) {
+  const tradeTime = ctx.tradeTime();
+  const candle = ctx.lastCandle("BTCUSDT");
+  if (!candle) return;
+  ctx.info(`时间(${tradeTime.toLocaleString()}), 收盘价(${candle.close.toString()})`);
+}
 /** 每小时结束 */
 function onHourEnd(ctx: Context) {}
 /** 每日结束 */
