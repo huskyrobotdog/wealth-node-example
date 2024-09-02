@@ -11,7 +11,7 @@
       "program": "${workspaceFolder}/src/main.ts",
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
-      "preLaunchTask": "build",
+      // "preLaunchTask": "build",
       "env": {
         "LOGO_SHOW": "false"
       }
