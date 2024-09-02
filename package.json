@@ -4,7 +4,7 @@
   "main": "dist/main.js",
   "scripts": {
     "test": "npm run build && node dist/main.js",
-    "build": "rm -rf ./dist && tsc && cp ./src/wealth/wealth-node.darwin-arm64.node ./dist/wealth"
+    "build": "rm -Recurse -Force ./dist && tsc && cp ./src/wealth/wealth-node.win32-x64-msvc.node ./dist/wealth"
   },
   "keywords": [],
   "author": "",
